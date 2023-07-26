@@ -26,6 +26,7 @@ h1 {
   margin: 20px auto;
   width: 40%;
   height: 40px;
+  gap: 10px;
 }
 #search input {
   border: 1px solid #8b949e;
@@ -43,11 +44,18 @@ input:focus {
 }
 #search button {
   border: none;
-  background-color: #0b949e;
-  width: 20%;
-  height: 40px;
+  width: 30%;
+  max-width: 70px;
+  background: #0b949e url(./assets/search-icon.svg) no-repeat center/30%;
+  border-radius: 9999px;
 }
-
+.open {
+  border: 1px solid #8b949e;
+  border-radius: 20px;
+  height: 5vh;
+  width: 70%;
+  margin: 20px auto;
+}
 /*Profile*/
 .profile {
   display: flex;
@@ -70,9 +78,9 @@ input:focus {
 }
 
 .profile span {
-  font-size: 14px;
+  font-size: 1rem;
   color: #8b949e;
-  padding-left: 25px;
+  padding-left: 15%;
 }
 
 /*Projects and followers*/
@@ -88,4 +96,10 @@ input:focus {
   text-align: center;
   color: #0b949e;
   border: 1px solid;
+}
+.Style_error{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20% auto;
 }

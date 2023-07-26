@@ -1,19 +1,31 @@
 const form = document.querySelector("#container-main");
+const element = document.querySelector("#profile");
+const element_error = document.querySelector("#Style_error");
 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
   //add class profile
+  element.classList.add("profile");
 
   var search_User = document.querySelector("#user").value;
   //excluir os espaços do nome de usuario(1ºSepara a string e coloca em um array, 2° junta todos os elementos do array e transforma em string)
   var original_Name = search_User.split(" ").join("");
 
-  //Coloca uma img vazia quando o usuario não existe
-  document.querySelector(".user-img").innerHTML = " ";
-
   fetch(`https://api.github.com/users/${original_Name}`)
     //transforma a api em json
-    .then((response) => response.json())
+    .then((response) => {
+      //tratamento de erros
+      if (!response.ok) {
+        //Para a execução e lança um novo error
+        throw new Error(
+          "Erro ao executar requisição, error: " + response.status
+        );
+      } //ver o número do error
+      else {
+        element_error.classList.remove("Style_error");
+        return response.json();
+      }
+    })
     .then((data) => {
       document.querySelector(
         ".user-img"
@@ -28,6 +40,14 @@ form.addEventListener("submit", function (e) {
       ).innerHTML = `<a href="#"> ${data.public_repos}</br>Repositórios</a> <a href="#"> ${data.followers}</br>Seguidores</a> <a href="#"> ${data.following}</br>Seguindo</a> `;
 
       console.log(data);
+    })
+    //Pegar o erro
+    .catch((error) => {
+      element_error.classList.add("Style_error");
+      element_error.innerHTML=document.createElement()
+      element_error.innerHTML =
+        "<p><em>Usuário não existe, por favor insira um usuário válido</em></p>";
+      console.error(error.message);
     });
 });
 
