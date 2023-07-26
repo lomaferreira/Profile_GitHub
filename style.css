@@ -1,0 +1,91 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #0d1110;
+  color: white;
+}
+
+h1 {
+  text-align: center;
+  margin: 20px auto;
+  padding-top: 100px;
+}
+
+#container-main {
+  margin: 30px;
+}
+
+/*Search*/
+#search {
+  display: flex;
+  margin: 20px auto;
+  width: 40%;
+  height: 40px;
+}
+#search input {
+  border: 1px solid #8b949e;
+  border-radius: 20px;
+  background-color: rgba(23, 31, 29, 0.1);
+  opacity: 1;
+  width: 80%;
+  height: 40px;
+  padding: 0 15px;
+  color: #0b949e;
+}
+input:focus {
+  outline: none;
+  color: #0b949e;
+}
+#search button {
+  border: none;
+  background-color: #0b949e;
+  width: 20%;
+  height: 40px;
+}
+
+/*Profile*/
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+
+  border: 1px solid #8b949e;
+  border-radius: 20px;
+  height: 80vh;
+  width: 70%;
+  margin: 20px auto;
+}
+
+.profile .user-img img {
+  border: 1px solid red;
+  width: 30vh;
+  border-radius: 50%;
+  margin-top: 20px;
+}
+
+.profile span {
+  font-size: 14px;
+  color: #8b949e;
+  padding-left: 25px;
+}
+
+/*Projects and followers*/
+.projects {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-evenly;
+  margin: 70px auto;
+}
+.projects a {
+  text-decoration: none;
+  text-align: center;
+  color: #0b949e;
+  border: 1px solid;
+}
