@@ -1,6 +1,6 @@
 const form = document.querySelector("#container-main");
 const element = document.querySelector("#profile");
-const element_error = document.querySelector("#Style_error");
+const element_error = document.querySelector("#message_error");
 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
@@ -22,7 +22,6 @@ form.addEventListener("submit", function (e) {
         );
       } //ver o número do error
       else {
-        element_error.classList.remove("Style_error");
         return response.json();
       }
     })
@@ -43,10 +42,11 @@ form.addEventListener("submit", function (e) {
     })
     //Pegar o erro
     .catch((error) => {
-      element_error.classList.add("Style_error");
-      element_error.innerHTML=document.createElement()
+      document.querySelector("#img").innerHTML =
+        "<img src='./assets/erro-404.png' width='30%'/>";
       element_error.innerHTML =
         "<p><em>Usuário não existe, por favor insira um usuário válido</em></p>";
+
       console.error(error.message);
     });
 });
