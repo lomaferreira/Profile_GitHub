@@ -1,6 +1,5 @@
 const form = document.querySelector("#container-main");
 const element = document.querySelector("#profile");
-const element_error = document.querySelector("#message_error");
 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
@@ -42,11 +41,6 @@ form.addEventListener("submit", function (e) {
     })
     //Pegar o erro
     .catch((error) => {
-      document.querySelector("#img").innerHTML =
-        "<img src='./assets/erro-404.png' width='30%'/>";
-      element_error.innerHTML =
-        "<p><em>Usuário não existe, por favor insira um usuário válido</em></p>";
-
       console.error(error.message);
     });
 });

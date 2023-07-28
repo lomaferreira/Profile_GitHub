@@ -97,14 +97,4 @@ input:focus {
   color: #0b949e;
   border: 1px solid;
 }
-#Style_error{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 70px;
-  gap: 50px;
-}
-#Style_error span{
-  padding-left: 40%;
-}
 
