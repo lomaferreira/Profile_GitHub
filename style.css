@@ -12,7 +12,6 @@ body {
 
 h1 {
   text-align: center;
-  margin: 20px auto;
   padding-top: 100px;
 }
 
@@ -71,7 +70,7 @@ input:focus {
 }
 
 .profile .user-img img {
-  border: 1px solid #8b949e ;
+  border: 1px solid #8b949e;
   width: 30vh;
   border-radius: 50%;
   margin-top: 20px;
@@ -95,13 +94,11 @@ input:focus {
   text-decoration: none;
   text-align: center;
   color: #0b949e;
- 
 }
 
-.error{
+.error {
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 0.8rem;
 }
-
