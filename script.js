@@ -1,10 +1,9 @@
 const form = document.querySelector("#container-main");
 const element = document.querySelector("#profile");
+const error = document.querySelector(".error");
 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
-  //add class profile
-  element.classList.add("profile");
 
   var search_User = document.querySelector("#user").value;
   //excluir os espaços do nome de usuario(1ºSepara a string e coloca em um array, 2° junta todos os elementos do array e transforma em string)
@@ -21,6 +20,8 @@ form.addEventListener("submit", function (e) {
         );
       } //ver o número do error
       else {
+        //add class profile
+        element.classList.add("profile");
         return response.json();
       }
     })
@@ -41,47 +42,8 @@ form.addEventListener("submit", function (e) {
     })
     //Pegar o erro
     .catch((error) => {
+      document.querySelector(".error").innerHTML =
+        "<em>Usuário não existe!</em>";
       console.error(error.message);
     });
 });
-
-/*
-//função assincrona
-async function fetchUsers(url) {
-  //await espera a promessa e retorna pra const
-  //obter a api
-  const response = await fetch(url);
-  //transforma a api em json
-  const jsonBody = await response.json();
-  return jsonBody; //retorna todas as infomações
-}
-var usuario = "lomaferreira";
-const requisicao = fetchUsers(`https://api.github.com/users/${usuario}`);
-//acompanha a espera da função para responder
-requisicao.then((response) => {
-  console.log(response);
-
-
-
-});
-
-
-
-fetch("https://api.github.com/users/kamranahmedse")
-  .then((response) => response.json())
-  .then((jsonBody) => {
-    //document.querySelector("#container-main").innerHTML = jsonBody.login;
-    console.log(jsonBody);
-  });
-
-/*
-  const data = {
-  id: "lomaferreira",
-  nome: "Paloma Santos",
-};
-fetch("https://ranekapi.origamid.dev/json/api/produto", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify(data),
-});
-*/
