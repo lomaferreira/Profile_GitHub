@@ -6,8 +6,8 @@
 }
 
 body {
-  background: rgb(255, 191, 137);
-  background: linear-gradient(90deg, rgba(255, 191, 137, 1) 15%, rgba(255, 137, 151, 1) 50%, rgba(225, 137, 255, 1) 95%);
+  background: rgb(177, 137, 255);
+  background: linear-gradient(90deg, rgba(177, 137, 255, 1) 36%, rgba(166, 82, 212, 1) 66%);
   background-size: 300% 300%;
   animation: color 12s ease-in-out infinite;
   color: white;

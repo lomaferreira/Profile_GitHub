@@ -44,6 +44,11 @@ form.addEventListener("submit", function (e) {
     //Pegar o erro
     .catch((err) => {
       error.innerHTML = "<em>Usuário não existe!</em>";
+      userImage.innerHTML = ''
+      userName.innerHTML = ''
+      bioUser.innerHTML = ''
+      projectsUser.innerHTML = ''
+      element.classList.remove('profile')
       console.error(err.message);
     });
 });
