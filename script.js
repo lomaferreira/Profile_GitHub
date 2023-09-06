@@ -1,6 +1,10 @@
 const form = document.querySelector("#container-main");
 const element = document.querySelector("#profile");
 const error = document.querySelector(".error");
+const userImage = document.querySelector(".user-img")
+const userName = document.querySelector(".user-name")
+const bioUser = document.querySelector(".bio-user")
+const projectsUser = document.querySelector(".projects")
 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
@@ -26,24 +30,25 @@ form.addEventListener("submit", function (e) {
       }
     })
     .then((data) => {
-      document.querySelector(
-        ".user-img"
-      ).innerHTML = `<a target="_blank"  href="https://www.github.com/${original_Name}"> <img src= "${data.avatar_url}"/></a>`;
-
-      document.querySelector(".user-name").innerHTML = `<h4>${data.name}</h4>
-       <span>${data.login}</span>`;
-
-      document.querySelector(".bio-user").innerHTML = `<p>${data.bio}</p>`;
-      document.querySelector(
-        ".projects"
-      ).innerHTML = `<a href="#"> ${data.public_repos}</br>Repositórios</a> <a href="#"> ${data.followers}</br>Seguidores</a> <a href="#"> ${data.following}</br>Seguindo</a> `;
-
-      console.log(data);
+      // Popula dados e constrói tela
+      error.innerHTML = "";
+      userImage.innerHTML = `<a target="_blank"  href="https://www.github.com/${original_Name}"> <img src= "${data.avatar_url}"/></a>`;
+      userName.innerHTML = `<h4>${data.name}</h4> <span style="color: #fff;" >${data.login}</span>`;
+      bioUser.innerHTML = `<p>${data.bio}</p>`;
+      projectsUser.innerHTML = `
+      <a target="_blank" href="https://github.com/${original_Name}?tab=repositories"> ${data.public_repos}</br>Repositórios</a> 
+      <a target="_blank" href="https://github.com/${original_Name}?tab=followers"> ${data.followers}</br>Seguidores</a> 
+      <a target="_blank" href="https://github.com/${original_Name}?tab=following"> ${data.following}</br>Seguindo</a> 
+      `;
     })
     //Pegar o erro
-    .catch((error) => {
-      document.querySelector(".error").innerHTML =
-        "<em>Usuário não existe!</em>";
-      console.error(error.message);
+    .catch((err) => {
+      error.innerHTML = "<em>Usuário não existe!</em>";
+      userImage.innerHTML = ''
+      userName.innerHTML = ''
+      bioUser.innerHTML = ''
+      projectsUser.innerHTML = ''
+      element.classList.remove('profile')
+      console.error(err.message);
     });
 });
